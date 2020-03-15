@@ -18,8 +18,24 @@
         <DockPanel Margin="0,150,0,0">
             <ToolBar DockPanel.Dock="Top">
                 <Button Command="ApplicationCommands.Open">
-                    <Image Source=""/>
+                    <Image Source="C:\PorteFeuille\NetProjet\TrippelSolution\vsIcons\FolderOpened\FolderOpened_16x.png" Width="16" Height="16"/>
                 </Button>
+                <Button Command="ApplicationCommands.Save">
+                    <Image Source="C:\PorteFeuille\NetProjet\TrippelSolution\vsIcons\Save\Save_16x.png" Width="16" Height="16"/>
+                </Button>
+                <Separator/>
+                <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
+                    <Image Source="C:\PorteFeuille\NetProjet\TrippelSolution\vsIcons\Bold\Bold_16x.png" Width="16" Height="16"></Image>
+                </ToggleButton>
+                <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic">
+                    <Image Source="C:\PorteFeuille\NetProjet\TrippelSolution\vsIcons\Italic\Italic_16x.png" Width="16" Height="16"></Image>
+                </ToggleButton>
+                <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline">
+                    <Image Source="C:\PorteFeuille\NetProjet\TrippelSolution\vsIcons\Underline\Underline_16x.png" Width="16" Height="16"></Image>
+                </ToggleButton>
+                <Separator/>
+                <ComboBox Name="cmbFontFamily" Width="250" SelectionChanged="cmbFontFamily_SelectionChanged"/>
+                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged"/>
             </ToolBar>
             <RichTextBox x:Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged"></RichTextBox>
         </DockPanel>
