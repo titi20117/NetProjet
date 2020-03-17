@@ -5,17 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trippel"
         mc:Ignorable="d"
-        Title="Trippel" Height="450" Width="800">
-    <Window.CommandBindings>
+        Title="Trippel" Height="600" Width="800" Background="#353839" >
+    <!--<Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed"></CommandBinding>
         <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed"></CommandBinding>
-    </Window.CommandBindings>
+    </Window.CommandBindings>-->
     <Grid>
-        <Label x:Name="lbSender" Content="From :" HorizontalAlignment="Left" Margin="222,53,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbRecipient" Content="To :" HorizontalAlignment="Left" Margin="222,100,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbSender" HorizontalAlignment="Left" Height="39" Margin="310,53,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="210" RenderTransformOrigin="0.5,0.513"/>
-        <TextBox x:Name="tbRecipient" HorizontalAlignment="Left" Height="39" Margin="310,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="210" RenderTransformOrigin="0.5,0.513"/>
-        <DockPanel Margin="0,150,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="92*"/>
+            <ColumnDefinition Width="201*"/>
+            <ColumnDefinition Width="103*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lbSubject" Content="subject" HorizontalAlignment="Left" Margin="38,5,0,0" VerticalAlignment="Top" Foreground="Orange" Grid.Column="1"/>
+        <TextBox x:Name="tbSubject" HorizontalAlignment="Left" Height="39" Margin="126,5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.5,0.513" Grid.Column="1"/>
+        <Label x:Name="lbSender" Content="From :" HorizontalAlignment="Left" Margin="38,53,0,0" VerticalAlignment="Top" Foreground="Orange" Grid.Column="1"/>
+        <Label x:Name="lbRecipient" Content="To :" HorizontalAlignment="Left" Margin="38,100,0,0" VerticalAlignment="Top" Foreground="Orange" Grid.Column="1"/>
+        <TextBox x:Name="tbSender" HorizontalAlignment="Left" Height="30" Margin="126,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.5,0.513" Grid.Column="1"/>
+        <TextBox x:Name="tbRecipient" HorizontalAlignment="Left" Height="30" Margin="126,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.5,0.513" Grid.Column="1"/>
+        <DockPanel Margin="0,150,0,73" Grid.ColumnSpan="3">
             <ToolBar DockPanel.Dock="Top">
                 <Button Command="ApplicationCommands.Open">
                     <Image Source="C:\PorteFeuille\NetProjet\TrippelSolution\vsIcons\FolderOpened\FolderOpened_16x.png" Width="16" Height="16"/>
@@ -33,13 +40,17 @@
                 <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline">
                     <Image Source="C:\PorteFeuille\NetProjet\TrippelSolution\vsIcons\Underline\Underline_16x.png" Width="16" Height="16"></Image>
                 </ToggleButton>
+                <Button x:Name="btnColor" Click="btnColor_Click">
+                    <Image Source="C:\PorteFeuille\NetProjet\TrippelSolution\vsIcons\ColorWheel\ColorWheel_16x.png" Width="26" Height="26"/>
+                </Button>
                 <Separator/>
-                <ComboBox Name="cmbFontFamily" Width="250" SelectionChanged="cmbFontFamily_SelectionChanged"/>
+                <ComboBox Name="cmbFontFamily" Width="200" SelectionChanged="cmbFontFamily_SelectionChanged"/>
                 <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged"/>
             </ToolBar>
-            <RichTextBox x:Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged"></RichTextBox>
+            <RichTextBox x:Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged"/>
         </DockPanel>
-
+        <Button x:Name="btnSendEmail" Width="120px" Height="40" Content="Envoyer" FontWeight="Heavy" Background="DarkKhaki" 
+                TextBlock.FontSize="18" VerticalAlignment="Bottom" Margin="153,0,129,18" Foreground="Black" Click="btnSendEmail_Click" Grid.Column="1"/>
     </Grid>
-    
+
 </Window>
